@@ -39,8 +39,8 @@ def funcao_clear():
     dyeizo.home()
 
 
-#chama o metodo para escutar o evento em key, a fun executa a funcao de mover para frente ou qualquer outra
-#funcao.
+"""chama o metodo para para o objeto screen executar a partir da chamada, o metodo onkey. key recebe o eventgo, a fun executa a funcao de mover para frente ou qualquer outra
+funcao."""
 screen.listen()
 
 screen.onkey(key="w", fun=move_forward)
