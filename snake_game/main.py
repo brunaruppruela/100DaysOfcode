@@ -18,6 +18,13 @@ screen.tracer(0)
 #instancia o objeto
 snake = Snake()
 
+#capturar teclas do teclado para movimentar o corpinho
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
 #validação para checar no while e continuar rodando 
 game_is_on = True
 while game_is_on:
