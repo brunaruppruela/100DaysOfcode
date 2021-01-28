@@ -19,11 +19,17 @@ class Snake:
     def create_snake(self):
         #cria 3 objetos snake com forma de quadrado para compor o centro da tela
         for position in INICIO_POSITIONS:
-            new_body = Turtle(shape = "square")
-            new_body.color("white") 
-            new_body.penup()
-            new_body.goto(position)
-            self.all_bodys.append(new_body)
+            self.add_sequence(position)        
+
+    def add_segment(self, position):
+        new_body = Turtle(shape = "square")
+        new_body.color("white") 
+        new_body.penup()
+        new_body.goto(position)
+        self.all_bodys.append(new_body)
+   
+    def extend(self):
+        self.add_segment(self.segment[-1].position())
 
     def move(self):
         # start inicio do range, até onde roda, step de quanto em quanto roda

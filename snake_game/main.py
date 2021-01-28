@@ -1,6 +1,8 @@
 #importando os modulos 
 from turtle import Screen, Turtle
 from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 import time 
 
 #inicia o objeto tela
@@ -17,6 +19,8 @@ screen.tracer(0)
 
 #instancia o objeto
 snake = Snake()
+food = Food()
+scoreboard  = Scoreboard()
 
 #capturar teclas do teclado para movimentar o corpinho
 screen.listen()
@@ -32,8 +36,18 @@ while game_is_on:
     screen.update()
     #atrasa 1s a visualizacao de cada body andar na tela, dando efeito de estarem um atras do outro
     time.sleep(0.1)
-
     snake.move()
+
+    #detectar as colisoes com comida
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        snake.extend()
+        scoreboard.increase_score()
+
+    #detectar colisao com a parede
+    if snake.head.xcor() > 280 or snake.head.xcor < -280 or snake.head.ycor() > 280 or snake.head.ycor < -280:
+        game_is_on = False
+        scoreboard.game_over()
 
 
 #evento para sair da tela do jogo ao clicar
