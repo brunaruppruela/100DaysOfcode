@@ -6,9 +6,11 @@ screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong Arcade")
+screen.tracer(0)
 
 #criando o objeto do tipo Screen para herdar as caracteristicas e ações de tela no jogo
 screen = Screen()
+
 
 #criando o objeto paddle do lado direito com caracteristicas da classe turtle
 paddle = Turtle()
@@ -37,6 +39,10 @@ screen.listen()
 screen.onkey(go_up, "Up")
 screen.onkey(go_down, "Down")
 
+game_is_on = True
+
+while game_is_on:
+    screen.update()
 
 
 #evento para sair da tela do jogo ao clicar
