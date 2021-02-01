@@ -2,6 +2,7 @@ from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
 import time
+from scoreboard import Scoreboard
 
 #criando o objeto e definindo tamanho da janela, cor e nome
 screen = Screen()
@@ -14,6 +15,7 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 
 
 #capturando os eventos do teclado para movimentar a pá, lembrando que passar função por parametro não é necessario os ()
@@ -30,6 +32,23 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    #detectando colisao com as paredes
+    if ball.ycor() > 300 or ball.ycor() < -280:
+        ball.bounce_y()
+    
+    #detectar colição com pá direita
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
 
+    #dectar pa direita perdida
+    if ball.xcor() > 380:
+        ball.reset_position()
+        scoreboard.l_point()
+
+
+    #dectar pa esq perdida
+    if ball.xcor() < -380:
+        ball.reset_position()
+        scoreboard.r_point()
 #evento para sair da tela do jogo ao clicar
 screen.exitonclick()

@@ -10,6 +10,7 @@ screen.setup(width=500, height=400)
 """usar o textinput semelhante ao input padrão. Da um titulo a janela e recebe num campo o dado, atraves do prompt"""
 user_bet = screen.textinput(title="Make your bet", prompt="Which turtle win the race? Enter a color: ")
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+names = ['A', 'B', 'C', 'D', 'E', 'F']
 y_positions = [-70, -40, -10, 20, 50, 80]
 all_turtles = []
 
@@ -20,7 +21,9 @@ for turtle_index in range(0, 6):
     new_turtle.color(colors[turtle_index])
     new_turtle.penup()
     new_turtle.goto(x=-230, y=y_positions[turtle_index])
+    new_turtle.write(names[turtle_index], True, align="center")
     all_turtles.append(new_turtle)
+    
 
 if user_bet:
     is_race_on = True
