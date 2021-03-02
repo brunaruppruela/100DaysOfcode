@@ -1,6 +1,7 @@
 #Código para criar uma Corrida de Tartatugas!
 from turtle import Turtle, Screen
 import random
+from tkinter import messagebox
 
 is_race_on = False
 screen = Screen()
@@ -39,7 +40,8 @@ while is_race_on:
                 #para o loop caso a escolha do usuario chegue junto com qualquer outra tartaruga
                 is_race_on = False
             else:
-                print(f"You've lost! The {winning_color} turtle is the winner!")
+                messagebox.showinfo(title="Oops", message=f"You've lost! The {winning_color} turtle is the winner!")
+                #print(f"You've lost! The {winning_color} turtle is the winner!")
 
         rand_distance = random.randint(0, 10)
         turtle.forward(rand_distance)
