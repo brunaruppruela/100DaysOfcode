@@ -1,7 +1,9 @@
-Dear [NAME],
+Olá [NAME],
 
-It's your birthday! Have a great day!
+É seu anivesario! Tenha um otimo dia!
 
-All my love,
+E bora remar!
 
-Angela
+De sua,
+
+Equipe Sereia Vaa
