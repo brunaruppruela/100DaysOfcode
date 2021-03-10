@@ -5,8 +5,8 @@ try:
 		smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
 		smtpObj.ehlo()
 		smtpObj.starttls()
-		msgTo = "brunarupp@gmail.com"
-		toPass = 'achtundzwanzig'
+		msgTo = #coloque aqui o email
+		toPass =  #coloque aqui a senha
 		smtpObj.login(msgTo, toPass)
 		msg = '''
 		teste do codigo da internet
